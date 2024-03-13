@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'categories_screen.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -10,22 +12,30 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'food',
+      title: 'DeliMeals',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        primaryColor: Colors.blue,
+        hintColor: Colors.blueAccent,
+        canvasColor: Colors.grey,
+        fontFamily: 'Raleway',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              titleLarge: const TextStyle(
+                fontFamily: 'RobotoCondensed',
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+              bodyLarge: const TextStyle(
+                color: Colors.white10,
+              ),
+              bodyMedium: const TextStyle(
+                color: Colors.black,
+              ),
+              bodySmall: const TextStyle(
+                color: Colors.grey,
+              ),
+            ),
       ),
-      home: const MyHomePage(),
+      home: const CategoriesScreen(),
     );
   }
 }
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
-}
-

@@ -1,4 +1,4 @@
 # food
 
-Mobile recipe app
+Mobile recipes app
 
