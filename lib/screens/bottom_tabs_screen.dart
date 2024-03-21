@@ -10,9 +10,9 @@ class BottomTabsScreen extends StatefulWidget {
 }
 
 class _BottomTabsScreenState extends State<BottomTabsScreen> {
-  final List<Widget> _pages = [
-    const CategoriesScreen(),
-    const FavoritesScreen(),
+  final List<Map<String, Object>> _pages = [
+    {'page': const CategoriesScreen(), 'title': 'Categories'},
+    {'page': const FavoritesScreen(), 'title': 'Favorites'},
   ];
   int _selectedPageIndex = 0;
 
@@ -25,19 +25,25 @@ class _BottomTabsScreenState extends State<BottomTabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Meals'),
+        title: Text(_pages[_selectedPageIndex]['title'] as String),
       ),
-      body: _pages[_selectedPageIndex],
+      body: _pages[_selectedPageIndex]['page'] as Widget,
       bottomNavigationBar: BottomNavigationBar(
         onTap: _selectPage,
-        backgroundColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Theme.of(context).primaryColor,
+        backgroundColor: Theme.of(context).cardColor,
+        currentIndex: _selectedPageIndex,
+        type: BottomNavigationBarType.shifting,
         items: const [
           BottomNavigationBarItem(
+            backgroundColor: Colors.white,
             icon: Icon(Icons.category_outlined),
             label: 'Category',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.star_border_outlined),
+            backgroundColor: Colors.white,
+            icon: Icon(Icons.star_border),
             label: 'Favorites',
           ),
         ],
