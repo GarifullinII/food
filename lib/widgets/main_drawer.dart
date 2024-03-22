@@ -31,7 +31,7 @@ class MainDrawer extends StatelessWidget {
             height: 100,
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 20),
-            margin: const EdgeInsets.all(20),
+            margin: const EdgeInsets.only(left: 20, top: 20),
             alignment: Alignment.centerLeft,
             child: const Text(
               'Cooking Up!',
@@ -52,7 +52,8 @@ class MainDrawer extends StatelessWidget {
             Icons.settings,
             'Filters',
             () {
-              Navigator.of(context).pushReplacementNamed(FiltersScreen.routeName);
+              Navigator.of(context)
+                  .pushReplacementNamed(FiltersScreen.routeName);
             },
           ),
         ],
